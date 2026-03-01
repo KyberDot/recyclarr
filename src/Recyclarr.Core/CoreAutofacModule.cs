@@ -279,10 +279,8 @@ public class CoreAutofacModule : Module
             SonarrQualityProfileGateway,
             RadarrQualityProfileGateway
         >();
-        builder
-            .RegisterType<CustomFormatApiService>()
-            .As<ICustomFormatApiService>()
-            .InstancePerLifetimeScope();
+        builder.RegisterServarrRefitClient<Recyclarr.Api.Sonarr.ICustomFormatApi>();
+        builder.RegisterServarrRefitClient<Recyclarr.Api.Radarr.ICustomFormatApi>();
         builder.RegisterServiceGateway<
             ICustomFormatService,
             SonarrCustomFormatGateway,
